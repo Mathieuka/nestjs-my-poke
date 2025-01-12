@@ -1,7 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PokemonController } from './pokemon.controller';
-import { GetPokemonUseCase } from '../../../application/usecases';
-import { PokemonRepository } from '../../database/pokemon/pokemonRepository/pokemonRepository';
+import { PokemonController } from '../pokemon.controller';
+import { PokemonRepository } from '@/infrastructure/database/pokemon/pokemonRepository/pokemonRepository';
+import { GetPokemonUseCase } from '@/application/usecases';
+// import { PokemonRepository } from '../../../database/pokemon/pokemonRepository/pokemonRepository';
 
 describe('PokemonController', () => {
   let pokemonController: PokemonController;
@@ -16,7 +17,7 @@ describe('PokemonController', () => {
   });
 
   describe('Root', () => {
-    it('Should return pokemon of type pickachu', async () => {
+    it('Should return pokemon of type pikachu', async () => {
       expect(pokemonController.getPokemon()).toEqual({
         type: 'Pikachu',
       });

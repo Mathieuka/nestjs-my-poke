@@ -1,5 +1,5 @@
-import { IPokemonRepository as IPokemonRepository } from '../../../../core/domain/repositories';
-import { Pokemon } from '../../../../core/domain/entities/pokemon';
+import { IPokemonRepository } from '@/core/domain/repositories';
+import { Pokemon } from '@/core/domain/entities/pokemon';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
