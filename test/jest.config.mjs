@@ -9,7 +9,6 @@ const config = {
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  collectCoverageFrom: ['**/*.(t|j)s'],
   moduleNameMapper: pathsToModuleNameMapper(tsConfig.compilerOptions.paths, {
     prefix: '<rootDir>/',
   }),
