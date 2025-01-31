@@ -2,7 +2,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { PokemonController } from '../pokemon.controller';
 import { PokemonRepository } from '@/infrastructure/database/pokemon/pokemonRepository/pokemonRepository';
 import { GetPokemonUseCase } from '@/application/usecases';
-// import { PokemonRepository } from '../../../database/pokemon/pokemonRepository/pokemonRepository';
 
 describe('PokemonController', () => {
   let pokemonController: PokemonController;
