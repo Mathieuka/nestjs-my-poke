@@ -1,6 +1,6 @@
-import { Pokemon } from '../../core/domain/entities/pokemon';
+import { Pokemon } from '@/core/domain/entities/pokemon';
 import { Injectable } from '@nestjs/common';
-import { PokemonRepository } from '../../infrastructure/database/pokemon/pokemonRepository/pokemonRepository';
+import { PokemonRepository } from '@/infrastructure/database/pokemon/pokemonRepository/pokemonRepository';
 
 @Injectable()
 export class GetPokemonUseCase {

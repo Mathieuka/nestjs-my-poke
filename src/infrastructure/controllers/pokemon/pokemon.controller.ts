@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { GetPokemonUseCase } from '../../../application/usecases';
+import { GetPokemonUseCase } from '@/application/usecases';
 
 @Controller()
 export class PokemonController {
