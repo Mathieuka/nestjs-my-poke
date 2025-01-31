@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
-import { PokemonModule } from './infrastructure/modules/pokemon.module';
+import { AppModule } from '@/infrastructure/modules/app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(PokemonModule);
+  const app = await NestFactory.create(AppModule);
 
   await app.listen(process.env.PORT ?? 3000);
 }
