@@ -1,24 +1,28 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { PokemonModule } from '@/infrastructure/modules/pokemon.module';
+import { AppModule } from '@/infrastructure/modules/app.module';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [PokemonModule],
+      imports: [AppModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it('/ (GET)', async () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
-      .expect({ type: 'Pikachu' });
+      .expect({ id: 1, type: 'Pikachu' });
   });
 });
