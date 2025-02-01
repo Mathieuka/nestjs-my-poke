@@ -22,12 +22,6 @@ export class PokemonRepository implements IPokemonRepository {
       };
     }
 
-    console.log(
-      '%c LOG response',
-      'background: #222; color: #bada55',
-      response,
-    );
-
     return response;
   }
 }
