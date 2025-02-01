@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
 import { PokemonModule } from '@/infrastructure/modules/pokemon.module';
 import { DatabaseModule } from '@/infrastructure/modules/database.module';
-import { ConfigModule } from '@nestjs/config';
+// import { DataSource } from 'typeorm';
 
 @Module({
-  imports: [PokemonModule, DatabaseModule, ConfigModule.forRoot()],
+  imports: [PokemonModule, DatabaseModule],
 })
-export class AppModule {}
+export class AppModule {
+  // constructor(private dataSource: DataSource) {}
+  constructor() {}
+}

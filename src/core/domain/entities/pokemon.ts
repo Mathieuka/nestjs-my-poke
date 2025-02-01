@@ -1,3 +1,3 @@
-export type Pokemon = {
+export type IPokemon = {
   type: string;
 };

@@ -1,12 +1,33 @@
 import { IPokemonRepository } from '@/core/domain/repositories';
-import { Pokemon } from '@/core/domain/entities/pokemon';
 import { Injectable } from '@nestjs/common';
+import { Pokemon } from '@/infrastructure/database/pokemon/pokemonRepository/pokemon.entity';
+import { Repository } from 'typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class PokemonRepository implements IPokemonRepository {
-  get(): Pokemon {
-    return {
-      type: 'Pikachu',
-    };
+  constructor(
+    @InjectRepository(Pokemon)
+    private pokemonRepository: Repository<Pokemon>,
+  ) {}
+
+  async get() {
+    const response = await this.pokemonRepository.findOne({
+      where: { type: 'Pikachu' },
+    });
+
+    if (!response) {
+      return {
+        type: 'Pikachu',
+      };
+    }
+
+    console.log(
+      '%c LOG response',
+      'background: #222; color: #bada55',
+      response,
+    );
+
+    return response;
   }
 }

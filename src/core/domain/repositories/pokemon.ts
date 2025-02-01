@@ -1,5 +1,5 @@
-import { Pokemon } from '../entities/pokemon';
+import { IPokemon } from '../entities/pokemon';
 
 export interface IPokemonRepository {
-  get(): Pokemon;
+  get(): Promise<IPokemon>;
 }

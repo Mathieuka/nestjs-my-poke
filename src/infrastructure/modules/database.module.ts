@@ -13,7 +13,7 @@ import { Pokemon } from '@/infrastructure/database/pokemon/pokemonRepository/pok
       database: 'my-pokemon-dev',
       entities: [Pokemon],
       synchronize: false,
-      migrations: ['src/infrastructure/migrations'],
+      logging: true,
     }),
   ],
 })

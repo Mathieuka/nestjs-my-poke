@@ -1,4 +1,4 @@
-import { Pokemon } from '@/core/domain/entities/pokemon';
+import { IPokemon } from '@/core/domain/entities/pokemon';
 import { Injectable } from '@nestjs/common';
 import { PokemonRepository } from '@/infrastructure/database/pokemon/pokemonRepository/pokemonRepository';
 
@@ -6,7 +6,15 @@ import { PokemonRepository } from '@/infrastructure/database/pokemon/pokemonRepo
 export class GetPokemonUseCase {
   constructor(private pokemonRepository: PokemonRepository) {}
 
-  execute(): Pokemon {
-    return this.pokemonRepository.get();
+  async execute(): Promise<IPokemon> {
+    const response = await this.pokemonRepository.get();
+
+    if (!response) {
+      return {
+        type: 'Pikachu',
+      };
+    }
+
+    return response;
   }
 }
