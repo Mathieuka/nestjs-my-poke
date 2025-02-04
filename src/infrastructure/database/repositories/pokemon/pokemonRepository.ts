@@ -1,8 +1,8 @@
 import { IPokemonRepository } from '@/core/domain/repositories';
 import { Injectable } from '@nestjs/common';
-import { Pokemon } from '@/infrastructure/database/pokemon/pokemonRepository/pokemon.entity';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
 
 @Injectable()
 export class PokemonRepository implements IPokemonRepository {

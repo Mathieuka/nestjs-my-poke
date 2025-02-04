@@ -1,5 +1,5 @@
 import { DataSource } from 'typeorm';
-import { Pokemon } from '@/infrastructure/database/pokemon/pokemonRepository/pokemon.entity';
+import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
 
 const AppDataSource = new DataSource({
   type: 'postgres',

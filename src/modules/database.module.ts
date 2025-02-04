@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Pokemon } from '@/infrastructure/database/pokemon/pokemonRepository/pokemon.entity';
+import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
 
 @Module({
   imports: [
