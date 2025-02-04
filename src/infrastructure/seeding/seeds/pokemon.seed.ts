@@ -10,8 +10,9 @@ export default class PokemonSeeder implements Seeder {
   ): Promise<any> {
     // const repository = dataSource.getRepository(Pokemon);
     // await repository.save({ type: 'Pikachu' });
+
     const factory = factoryManager.get(Pokemon);
-    const pokemons = await factory.saveMany(10);
+    const pokemons = await factory.saveMany(1);
     console.log(`Created ${pokemons.length} pokemons`);
   }
 }
