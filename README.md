@@ -2,7 +2,7 @@
 
 #### Generate migration
 ```bash
-pnpm run migration:generate --name=<name>
+npm run migration:generate --name=<name>
 ```
 
 #### Run migration
