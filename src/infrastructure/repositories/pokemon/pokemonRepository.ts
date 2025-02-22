@@ -17,9 +17,7 @@ export class PokemonRepository implements IPokemonRepository {
     });
 
     if (!response) {
-      return {
-        type: 'Pikachu',
-      };
+      throw new Error('Pokemon not found');
     }
 
     return response;
