@@ -7,14 +7,6 @@ export class GetPokemonUseCase {
   constructor(private pokemonRepository: PokemonRepository) {}
 
   async execute(): Promise<IPokemon> {
-    const response = await this.pokemonRepository.get();
-
-    if (!response) {
-      return {
-        type: 'Pikachu',
-      };
-    }
-
-    return response;
+    return this.pokemonRepository.get();
   }
 }
