@@ -22,5 +22,5 @@ export const dataSourceIntegrationTest = new DataSource({
   username: 'user',
   password: 'password',
   entities: [Pokemon, User],
-  ...testConfig,
+  ...(process.env.NODE_ENV === 'test' ? testConfig : {}),
 });
