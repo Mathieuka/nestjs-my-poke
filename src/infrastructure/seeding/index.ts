@@ -15,10 +15,8 @@ const options: DataSourceOptions & SeederOptions = {
   password: 'password',
   database: 'my-pokemon-dev',
   entities: [Pokemon, User],
-  // migrationsRun: false,
+  migrationsRun: false,
   seedTracking: false,
-  dropSchema: true,
-  synchronize: true,
   factories: [factoryPath],
   seeds: [seedPath],
 };
