@@ -10,9 +10,7 @@ const AppDataSource = new DataSource({
   password: 'password',
   database: 'my-pokemon-dev',
   entities: [Pokemon, User],
-  synchronize: false,
   migrations: ['src/infrastructure/database/migrations/*.ts'],
-  migrationsRun: false,
   // logging: true,
 });
 
