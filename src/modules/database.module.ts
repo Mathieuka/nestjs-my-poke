@@ -1,14 +1,8 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
 import { User } from '@/infrastructure/database/entities/user.entity';
-
-const testConfig: Partial<TypeOrmModuleOptions> = {
-  port: 5435,
-  database: 'my-pokemon-integration-dev',
-  dropSchema: true,
-  synchronize: true,
-};
+import { testConfig } from '@/test/integration/datasource';
 
 @Module({
   imports: [

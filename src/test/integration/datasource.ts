@@ -2,12 +2,25 @@ import { DataSource } from 'typeorm';
 import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
 import { User } from '@/infrastructure/database/entities/user.entity';
 
+type TestConfig = {
+  port: number;
+  database: string;
+  dropSchema: boolean;
+  synchronize: boolean;
+};
+
+export const testConfig: TestConfig = {
+  port: 5435,
+  database: 'my-pokemon-integration-dev',
+  dropSchema: true,
+  synchronize: true,
+};
+
 export const dataSourceIntegrationTest = new DataSource({
   type: 'postgres',
   host: 'localhost',
-  port: 5435,
   username: 'user',
   password: 'password',
-  database: 'my-pokemon-integration-dev',
   entities: [Pokemon, User],
+  ...testConfig,
 });
