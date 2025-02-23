@@ -2,7 +2,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '@/modules/app.module';
-import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
+import {
+  Pokemon,
+  PokemonType,
+} from '@/infrastructure/database/entities/pokemon.entity';
 import { dataSourceIntegrationTest } from '@/test/integration/datasource';
 
 describe('AppController (e2e)', () => {
@@ -26,14 +29,19 @@ describe('AppController (e2e)', () => {
   });
 
   it('Find all pokemon', async () => {
-    const pokemon = pokemonRepository.create({ type: 'Pikachu' });
+    const pokemon = pokemonRepository.create({
+      type: PokemonType.ELECTRIC,
+      name: 'Pikachu',
+    });
     await pokemonRepository.save(pokemon);
 
     const response = await request(app.getHttpServer())
       .get('/pokemons')
       .expect(200);
 
-    expect(response.body.length).toBeGreaterThan(0);
+    expect(response.body).toEqual([
+      { type: PokemonType.ELECTRIC, name: 'Pikachu', id: expect.any(String) },
+    ]);
 
     await pokemonRepository.clear();
   });

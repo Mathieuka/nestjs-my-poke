@@ -2,7 +2,10 @@ import { IPokemonRepository } from '@/core/domain/repositories';
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
+import {
+  Pokemon,
+  PokemonType,
+} from '@/infrastructure/database/entities/pokemon.entity';
 
 @Injectable()
 export class PokemonRepository implements IPokemonRepository {
@@ -13,7 +16,7 @@ export class PokemonRepository implements IPokemonRepository {
 
   async get() {
     const response = await this.pokemonRepository.findOne({
-      where: { type: 'Pikachu' },
+      where: { type: PokemonType.ELECTRIC },
     });
 
     if (!response) {

@@ -1,9 +1,13 @@
 import { setSeederFactory } from 'typeorm-extension';
-import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
+import {
+  Pokemon,
+  PokemonType,
+} from '@/infrastructure/database/entities/pokemon.entity';
 
 export default setSeederFactory(Pokemon, (faker) => {
   const pokemon = new Pokemon();
 
-  pokemon.type = 'Pikachu';
+  pokemon.type = PokemonType.ELECTRIC;
+  pokemon.name = 'Pikachu';
   return pokemon;
 });
