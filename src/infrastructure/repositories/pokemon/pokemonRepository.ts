@@ -22,4 +22,14 @@ export class PokemonRepository implements IPokemonRepository {
 
     return response;
   }
+
+  async findAll() {
+    const response = await this.pokemonRepository.find();
+
+    if (!response) {
+      throw new Error('Pokemon not found');
+    }
+
+    return response;
+  }
 }

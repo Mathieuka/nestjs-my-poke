@@ -1,13 +1,19 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { GetPokemonUseCase } from '@/application/usecases';
+import {
+  GetPokemonUseCase,
+  FindAllPokemonUseCase,
+} from '@/application/usecases';
 
 @Controller()
 export class PokemonController {
-  constructor(private readonly getPokemonUseCase: GetPokemonUseCase) {}
+  constructor(
+    private readonly getPokemonUseCase: GetPokemonUseCase,
+    private readonly findAllPokemonUseCase: FindAllPokemonUseCase,
+  ) {}
 
-  @Get('/pokemon/:id')
+  @Get('/pokemons')
   getPokemon(@Param('id') id: string): any {
     // console.log('%c LOG id', 'background: #222; color: #bada55', id);
-    return this.getPokemonUseCase.execute();
+    return this.findAllPokemonUseCase.execute();
   }
 }

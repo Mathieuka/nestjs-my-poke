@@ -1,5 +1,8 @@
 import { Module } from '@nestjs/common';
-import { GetPokemonUseCase } from '@/application/usecases';
+import {
+  FindAllPokemonUseCase,
+  GetPokemonUseCase,
+} from '@/application/usecases';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Pokemon } from '@/infrastructure/database/entities/pokemon.entity';
 import { DatabaseModule } from '@/modules/database.module';
@@ -9,6 +12,6 @@ import { PokemonRepository } from '@/infrastructure/repositories/pokemon/pokemon
 @Module({
   imports: [DatabaseModule, TypeOrmModule.forFeature([Pokemon])],
   controllers: [PokemonController],
-  providers: [GetPokemonUseCase, PokemonRepository],
+  providers: [GetPokemonUseCase, FindAllPokemonUseCase, PokemonRepository],
 })
 export class PokemonModule {}

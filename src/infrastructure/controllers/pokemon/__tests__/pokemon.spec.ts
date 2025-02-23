@@ -25,13 +25,15 @@ describe('AppController (e2e)', () => {
     await dataSourceIntegrationTest.destroy();
   });
 
-  it('/ (GET)', async () => {
-    await pokemonRepository.save({ type: 'Pikachu' });
+  it('Find all pokemon', async () => {
+    const pokemon = pokemonRepository.create({ type: 'Pikachu' });
+    await pokemonRepository.save(pokemon);
 
-    await request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect((response) => response.type === 'Pikachu');
+    const response = await request(app.getHttpServer())
+      .get('/pokemons')
+      .expect(200);
+
+    expect(response.body.length).toBeGreaterThan(0);
 
     await pokemonRepository.clear();
   });
